@@ -43,43 +43,70 @@ Database Table Designs:
 Category Table
 
 name
+
 Blog Table
 
 title (must be unique)
+
 content
+
 image
+
 category (relationship with Category Table - ForeignKey, OneToOne, or ManyToMany)
+
 publish_date
+
 user (relationship with User Table - ForeignKey, OneToOne, or ManyToMany)
+
 status (using choices, e.g., ('d', 'Draft'), ('p', 'Published'))
+
 Comment Table
 
 user (relationship with User Table - ForeignKey, OneToOne, or ManyToMany)
+
 time_stamp
+
 content
+
 blog (relationship with Blog Table - ForeignKey, OneToOne, or ManyToMany)
+
 Likes Table
 
 user (relationship with User Table - ForeignKey, OneToOne, or ManyToMany)
+
 blog (relationship with Blog Table - ForeignKey, OneToOne, or ManyToMany)
 likes
+
 PostViews Table
 
 user (relationship with User Table - ForeignKey, OneToOne, or ManyToMany)
+
 post_views
+
 blog (relationship with Blog Table - ForeignKey, OneToOne, or ManyToMany)
+
 time_stamp
+
 Additional Requirements:
 
 Write a method to calculate the total number of comments made.
+
 Calculate the total number of likes.
+
 Calculate the view count of blogs.
+
 User ID in tables with a user field should be automatically obtained from the token information.
+
 Only the get operation should be allowed for category operations for every user. The put, post, and delete operations should be restricted to staff users only.
+
 For blogs, every user can perform the get operation, but only the blog owner and staff users can perform update and delete operations.
+
 If a user is a staff member, they should be able to view and edit their blogs even if the status is 'd'; other users can only view those with status 'p'.
+
 If the user is a staff member, use BlogSerializer; otherwise, use UserBlogSerializer. Therefore, two serializers should be created for blogs, and regular users will not see the status field.
+
 When entering the details page of a blog, create a post view.
+
 Every user can edit their own comments and view comments made by others.
 
 
